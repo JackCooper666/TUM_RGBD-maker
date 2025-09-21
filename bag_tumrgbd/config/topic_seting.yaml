@@ -1,0 +1,36 @@
+common:
+  lid_topic: "/livox/lidar"
+  imu_topic: "/livox/imu"
+  img_topic: "/camera/image_color"
+  mocap_topic: "/mocap_node/track_1/pose"
+  rtk_topic: "/dji_osdk_ros/rtk_position"
+
+preprocess:
+  blind: 0.01
+  lidar_type: AVIA
+  scan_line: 6
+  point_filter_num: 3
+  feature_extract_enabled: false
+
+gt: # ground truth setting
+  rtk: true # the mocap is the default
+
+camera:
+  width: 2448
+  height: 2048
+  fx: 1444.431662789634
+  fy: 1444.343536688358
+  cx: 1177.801079401826
+  cy: 1043.601026568268
+
+detph:
+  depth_min_: 0.1
+  depth_max_: 60
+
+extrin_calib:
+  # extrinsic_T: [0.04165, 0.02326, -0.0284]
+  # extrinsic_R: [1, 0, 0, 0, 1, 0, 0, 0, 1]
+  Rcl: [0.00438814,-0.999807,-0.0191582,
+        -0.00978695,0.0191145,-0.999769,
+        0.999942,0.00457463,-0.00970118]
+  Pcl: [0.016069, 0.0871753, -0.0718021]
